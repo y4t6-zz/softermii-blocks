@@ -1,0 +1,56 @@
+.c-currency {
+    &__button {
+        height: $c-top-height;
+        line-height: $c-top-height;
+        padding-left: 5px;
+        padding-right: 18px;
+        cursor: pointer;
+        min-width: 74px;
+        text-align: center;
+        &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 10px;
+            right: 17px;
+            border: 3px solid #c1c1c1;
+            border-top-color: transparent;
+            border-left-color: transparent;
+            transform: rotate(45deg);
+        }
+    }
+    &__list {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: black;
+        opacity: 0;
+        pointer-events: none;
+        li {
+            height: $c-top-height;
+            line-height: $c-top-height;
+            padding-left: 15px;
+            padding-right: 15px;
+            cursor: pointer;
+            float: left;
+            display: block;
+            box-sizing: border-box;
+            width: 100%;
+            border-top: 1px solid $right-group-item-border-color;
+        }
+    }
+    &.is-active {
+        .c-currency__list {
+            opacity: 1;
+            pointer-events: all;
+        }
+        .c-currency__button {
+            &:after {
+                top: 14px;
+                right: 17px;
+                transform: rotate(-135deg);
+            }
+        }
+    }
+}

@@ -1,0 +1,234 @@
+.c-slider {
+    &__slider-wrap {
+        height: 450px;
+        background-color: $g-main-color;
+        overflow: hidden;
+    }
+    .c {
+        max-width: $max-width + 30px;
+    }
+    &__nav-wrap {
+        .c {
+            max-width: $max-width;
+        }
+    }
+    &__nav-group {
+        @extend .clearfix;
+        width: 100%;
+    }
+    &__nav {
+        float: left;
+        @extend .clearfix;
+        display: block;
+        li {
+            float: left;
+            text-transform: uppercase;
+            height: 48px;
+            font-size: 15px;
+            line-height: 48px;
+            padding-left: 20px;
+            padding-right: 20px;
+            cursor: pointer;
+            color: #555555;
+            @extend .transition;
+            &.is-active, &:hover {
+                background-color: $g-main-color;
+                color: white;
+                @extend .transition-hover;
+            }
+        }
+    }
+    &__arrows {
+        @extend .clearfix;
+        float: right;
+        li {
+            width: 48px;
+            height: 48px;
+            background-color: #f2f2f2;
+            display: block;
+            float: left;
+            @extend .transition;
+            cursor: pointer;
+            overflow: hidden;
+            &:hover {
+                background-color: $g-main-color;
+                @extend .transition-hover;
+                &:after {
+                    border-color: white;
+                    @extend .transition-hover;
+                }
+            }
+            &:after {
+                content: '';
+                display: block;
+                width: 20px;
+                height: 20px;
+                border-top: 1px solid #979797;
+                border-left: 1px solid #979797;
+                position: absolute;
+                @extend .transition;
+            }
+            &:nth-child(1):after {
+                transform: rotate(-45deg);
+                top: 13px;
+                left: 18px;
+            }
+            &:nth-child(2):after {
+                transform: rotate(135deg);
+                top: 13px;
+                right: 18px;
+            }
+        }
+    }
+    &__init {
+        padding-top: 25px;
+    }
+    &__card {
+        width: 220px;
+        @extend .transition;
+        float: left;
+        margin-left: 15px;
+        margin-right: 15px;
+        border: none;
+        outline: none;
+        &:hover {
+            transform: scale(1.045);
+            @extend .transition-hover;
+            box-shadow: 0 0 34px -6px #bd6344;
+            .c-slider__card-img {
+                a {
+                    opacity: 1;
+                    pointer-events: all;
+                    @extend .transition-hover;
+                }
+            }
+        }
+    }
+    &__card-sale {
+        width: 50px;
+        height: 50px;
+        box-sizing: border-box;
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 0;
+        background: linear-gradient(135deg, $g-background-dark 0%, $g-background-dark 50%, white 50.3%, white 100%);
+        span {
+            color: white;
+            font-size: 10px;
+            text-transform: uppercase;
+            margin-left: 5px;
+        }
+    }
+    &__card-img {
+        background-color: lighten($background-color-slider, 20);
+        height: 290px;
+        background-size: cover;
+        background-repeat: no-repeat;
+        a {
+            opacity: 0;
+            pointer-events: none;
+            @extend .transition;
+            position: absolute;
+            $c-slider-card-img-link-height: 130px;
+            display: block;
+            width: $c-slider-card-img-link-height;
+            height: $c-slider-card-img-link-height;
+            background-color: $g-background-dark;
+            border-radius: $c-slider-card-img-link-height / 2;
+            color: white;
+            font-size: 12px;
+            text-transform: uppercase;
+            text-decoration: none;
+            text-align: center;
+            padding-top: 39px;
+            box-sizing: border-box;
+            top: 50%;
+            left: 50%;
+            margin-top: -$c-slider-card-img-link-height / 2;
+            margin-left: -$c-slider-card-img-link-height / 2;
+            &:before {
+                content: '';
+                display: block;
+                width: 32px;
+                height: 29px;
+                background-image: url('../img/design/cart-icon-white.png');
+                background-repeat: no-repeat;
+                background-size: contain;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            span {
+                margin-top: 5px;
+                display: inline-block;
+            }
+        }
+    }
+    &__card-footer {
+        background-color: white;
+        padding: 10px;
+        padding-bottom: 15px;
+        text-align: center;
+    }
+    &__card-title {
+        font-size: 12px;
+        margin-bottom: 3px;
+        text-transform: uppercase;
+    }
+    &__card-price {
+        font-size: 22px;
+        text-transform: uppercase;
+    }
+    &__card-button-wrap {
+        margin-top: 7px;
+        button {
+            $c-slider-card-button-height: 30px;
+            display: inline-block;
+            background-color: $g-main-color;
+            color: white;
+            border: none;
+            font-size: 12px;
+            text-transform: uppercase;
+            width: 120px;
+            height: $c-slider-card-button-height;
+            margin-left: auto;
+            margin-right: auto;
+            cursor: pointer;
+            box-shadow: 0 3px 0 0 $g-main-color-darken;
+            padding-left: 5px;
+            padding-right: 5px;
+            &:hover {
+                box-shadow: 0 1px 0 0 $g-main-color-darken;
+            }
+            span {
+                $c-slider-card-button-plus-height: 12px;
+                $c-slider-card-button-plus-el-thickness: 4px;
+                display: inline-block;
+                width: $c-slider-card-button-plus-height;
+                height: $c-slider-card-button-plus-height;
+                top: 1px;
+                margin-left: 5px;
+                &:after, &:before {
+                    content: '';
+                    display: block;
+                    background-color: white;
+                    position: absolute;
+                }
+                &:after {
+                    width: $c-slider-card-button-plus-el-thickness;
+                    height: $c-slider-card-button-plus-height;
+                    left: $c-slider-card-button-plus-height / 2 - $c-slider-card-button-plus-el-thickness / 2;
+                }
+                &:before {
+                    width: $c-slider-card-button-plus-height;
+                    height: $c-slider-card-button-plus-el-thickness;
+                    top: $c-slider-card-button-plus-height / 2 - $c-slider-card-button-plus-el-thickness / 2;
+                }
+            }
+
+        }
+    }
+    .slick-list {
+        width: 100%;
+    }
+}

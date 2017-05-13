@@ -1,0 +1,145 @@
+$c-footer-bottom-nav-text-color: #8d8d8d;
+.c-footer {
+    .c {
+        text-align: center;
+    }
+    &__top {
+        background-color: #ededed;
+        .c {
+            @extend .clearfix;
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+    }
+    &__bottom {
+        background-color: black;
+    }
+    &__nav-group {
+        width: 70%;
+        float: left;
+    }
+    &__top-right-group {
+        width: 30%;
+        float: left;
+    }
+    &__nav-group-item {
+        float: left;
+        text-align: left;
+        padding-right: 10px;
+        &:not(:last-child) {
+            width: 28%;
+        }
+        &:last-child {
+            width: 16%;
+        }
+        &:nth-child(2) {
+            width: 24%;
+        }
+        h3 {
+            @extend .footer-h3;
+        }
+        ul {
+            li {
+                a {
+                    font-size: 12px;
+                    color: rgb(173, 173, 173);
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+    &__socials {
+        float: left;
+        width: 50%;
+        text-align: left;
+        h3 {
+            @extend .footer-h3;
+        }
+        ul {
+            @extend .clearfix;
+            max-width: 140px;
+            padding-top: 10px;
+            li {
+                float: left;
+                margin-right: 11px;
+                margin-bottom: 11px;
+                a {
+                    display: block;
+                    width: 35px;
+                    height: 35px;
+                    background-color: $g-background-dark;
+                    border-radius: 35px;
+                    background-image: url('../img/design/social-icons.png');
+                    background-repeat: no-repeat;
+                }
+                @for $i from 1 through 6 {
+                    &:nth-child(#{$i}) {
+                        @if $i == 1 {
+                            a {
+                              background-position: 0 0;
+                            }
+                        } @else {
+                            a {
+                              background-position: 0 -35px * ($i - 1);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &__secured {
+        float: left;
+        width: 50%;
+        text-align: right;
+        padding-top: 15px;
+        img {
+            max-width: 100%;
+            width: 105px;
+        }
+    }
+    &__bottom-table {
+        display: table;
+        width: 100%;
+    }
+    &__bottom-cell {
+        display: table-cell;
+        height: 70px;
+        vertical-align: middle;
+        color: $c-footer-bottom-nav-text-color;
+        font-size: 11px;
+        width: 70%;
+        &--copy {
+            text-align: right;
+            width: 30%;
+            p:not(:last-child) {
+                margin-bottom: 5px;
+            }
+        }
+    }
+    &__bottom-nav {
+        text-align: left;
+        ul {
+            li {
+                display: inline-block;
+                &:not(:last-child) {
+                    margin-right: 20px;
+                    &:after {
+                        content: '';
+                        display: block;
+                        width: 1px;
+                        height: 10px;
+                        position: absolute;
+                        top: 1px;
+                        right: -12px;
+                        background-color: #737373;
+                    }
+                }
+                a {
+                    color: $c-footer-bottom-nav-text-color;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}

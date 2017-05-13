@@ -1,0 +1,31 @@
+@import '../_vars';
+@import '_m';
+
+.clearfix {
+	&:after {
+		content: '';
+		display: table;
+		clear: both;
+	}
+}
+.border {
+	border: 1px solid red;
+	box-sizing: border-box;
+}
+.transition {
+	transition: 0.1s;
+}
+.transition-hover {
+	transition: 0.3s;
+}
+.gpl {
+	padding-left: 20px;
+}
+.gpr {
+	padding-right: 20px;
+}
+
+.footer-h3 {
+	font-size: 16px;
+	color: #544f4d;
+}
