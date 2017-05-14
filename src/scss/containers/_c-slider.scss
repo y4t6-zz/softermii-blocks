@@ -50,6 +50,9 @@
             @extend .transition;
             cursor: pointer;
             overflow: hidden;
+            &.slick-hidden {
+                display: none;
+            }
             &:hover {
                 background-color: $g-main-color;
                 @extend .transition-hover;

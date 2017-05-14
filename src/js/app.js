@@ -1,10 +1,21 @@
 $('.jsSlider').slick({
-  //slidesToShow: 4,
-  //slidesToScroll: 1,
   infinite: true,
   prevArrow: $('.c-slider__arrows li:first-child'),
   nextArrow: $('.c-slider__arrows li:nth-child(2)')
 });
+var i = 0;
+$('.c-slider__nav li').on('click', function(){
+    var filterKey = $(this).text();
+    $('.jsSlider').slick('slickFilter', function() {
+        console.log($(this).data('item').indexOf(filterKey));
+        if ($(this).data('item').indexOf(filterKey) != "-1") {
+            return true;
+        } else {
+            return false;
+        }
+    });
+});
+
 
 $("body").click(function(e) {
 	if (e.target.className.indexOf("jsSearchGroup") != -1 || e.target.className == 'jsSearchInput') {
@@ -13,7 +24,7 @@ $("body").click(function(e) {
 	} else {
         $(".c-top__search-group").removeClass('is-active')
 	}
-    // c-currency toggle
+    /* c-currency toggle */
     if (e.target.className == 'c-currency__button') {
         $(".c-currency").toggleClass('is-active');
     } else {
@@ -40,5 +51,4 @@ $('.c-currency__list li').click(function() {
     currentCurrencyBtn.text(selectedCurrency);
     $(this).text(currentCurrency);
 })
-
 /* END c-currency */
