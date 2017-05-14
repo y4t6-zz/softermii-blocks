@@ -1,4 +1,9 @@
 $c-header-height: 105px;
+$c-header-hover-nav-background: #fafafa;
+$c-header-sub-nav-color: black;
+$c-header-hover-sub-nav-color: black;
+$c-header-nav-border-color: rgb(214, 214, 214);
+$c-header-hover-item-background: darken($c-header-hover-nav-background, 3);
 .c-header {
     background-color: white;
     z-index: 5000;
@@ -30,34 +35,49 @@ $c-header-height: 105px;
     &__nav-sub-list {
         display: none;
         position: absolute;
-        top: 100%;
+        top: 28px;
         left: -20px;
-        background: white;
-        padding: 20px;
+        background-color: $c-header-hover-nav-background;
         text-align: left;
-        box-shadow: 0px 2px 5px 0px #e9e9e9;
+        min-width: 100px;
         li {
-            padding-bottom: 6px;
+            margin-top: -1px;
             &:last-child {
                 padding-bottom: 0;
             }
+            border: 1px solid $c-header-nav-border-color;
             a {
+                display: block;
+                color: $c-header-sub-nav-color;
+                text-decoration: none;
+                padding-left: 20px;
+                padding-right: 40px;
+                padding-top: 8px;
+                padding-bottom: 8px;
                 &:hover {
-                    color: $color-link-hover;
+                    color: $c-header-hover-sub-nav-color;
+                    background-color: $c-header-hover-item-background;
                 }
             }
         }
     }
     &__nav-item {
         &:hover {
+            .c-header__nav-item-link {
+                color: $c-header-sub-nav-color;
+                &:before {
+                    background-color: $c-header-hover-nav-background;
+                    border: 1px solid $c-header-nav-border-color;
+                    pointer-events: all;
+                }
+                &:after {
+                    $arrow-color: lighten($c-header-sub-nav-color, 20);
+                    border-right-color: $arrow-color;
+                    border-bottom-color: $arrow-color;
+                }
+            }
             .c-header__nav-sub-list {
                 display: block;
-            }
-            .c-header__nav-item-link {
-                &:after {
-                    border-right-color: $color-link;
-                    border-bottom-color: $color-link;
-                }
             }
         }
     }
@@ -68,6 +88,22 @@ $c-header-height: 105px;
         text-decoration: none;
         padding-right: 16px;
         display: block;
+        &:hover {
+            color: $c-header-hover-sub-nav-color !important;
+            &:before {
+                background-color: $c-header-hover-item-background !important;
+            }
+        }
+        &:before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: -10px;
+            left: -20px;
+            right: -10px;
+            bottom: -10px;
+            pointer-events: none;
+        }
         &:after {
             content: '';
             display: block;
