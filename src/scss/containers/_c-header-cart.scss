@@ -21,6 +21,9 @@ $c-header-cart-border-color: #d6d6d6;
             border-left-color: transparent;
             transform: rotate(45deg);
         }
+        @include ab() {
+            display: none;
+        }
     }
     &__cart-status {
         font-size: 11px;
@@ -34,6 +37,10 @@ $c-header-cart-border-color: #d6d6d6;
         border-top: none;
         text-transform: uppercase;
         background-color: #fafafa;
+        @include ab() {
+            border-top: 1px solid $c-header-cart-border-color;
+            width: 100%;
+        }
         &:before {
             content: '';
             display: block;

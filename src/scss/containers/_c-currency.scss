@@ -7,6 +7,10 @@
         cursor: pointer;
         min-width: 74px;
         text-align: center;
+        @include ab() {
+            height: $c-top-right-group-mobile-height;
+            line-height: $c-top-right-group-mobile-height;
+        }
         &:after {
             content: '';
             display: block;
@@ -17,6 +21,10 @@
             border-top-color: transparent;
             border-left-color: transparent;
             transform: rotate(45deg);
+            @include ab() {
+                top: 50%;
+                margin-top: -4px;
+            }
         }
     }
     &__list {
@@ -38,6 +46,12 @@
             box-sizing: border-box;
             width: 100%;
             border-top: 1px solid $right-group-item-border-color;
+            @include ab() {
+                height: $c-top-right-group-mobile-height;
+                line-height: $c-top-right-group-mobile-height;
+                padding-left: 20px;
+                padding-right: 15px;
+            }
         }
     }
     &.is-active {
@@ -50,6 +64,10 @@
                 top: 14px;
                 right: 17px;
                 transform: rotate(-135deg);
+                @include ab() {
+                    top: 50%;
+                    margin-top: -1px;
+                }
             }
         }
     }

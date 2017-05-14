@@ -10,6 +10,10 @@ $c-header-height: 105px;
     &__logo-wrap {
         float: left;
         padding-top: 40px;
+        @include ab() {
+            width: 100%;
+            padding-top: 20px;
+        }
     }
     &__logo {
         display: inline-block;
@@ -29,5 +33,9 @@ $c-header-height: 105px;
     &__cart-wrap {
         padding-top: 22px;
         float: right;
+        @include ab() {
+            width: 100%;
+            padding-top: 15px;
+        }
     }
 }

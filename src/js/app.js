@@ -63,8 +63,16 @@ $('.c-currency__list li').click(function() {
 $('.jsNavButton').click(function() {
     var nav = $('.c-nav');
     nav.toggleClass('is-active');
-})
+});
 $('.c-nav__item-link').click(function(event) {
     event.preventDefault();
     $(this).parent().toggleClass('is-active');
-})
+});
+setSearchFormWidth();
+$( window ).resize(function() {
+  setSearchFormWidth();
+});
+function setSearchFormWidth() {
+    var formWidth = $('.c-top__right-group').width();
+    $('.c-top__search-form').css('width', formWidth);
+}

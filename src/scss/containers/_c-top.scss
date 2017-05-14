@@ -1,12 +1,20 @@
 $c-top-height: 30px;
 $right-group-item-border-color: #444444;
+$c-top-right-group-mobile-height: 50px;
+$c-top-currency-width-mobile: 100px;
 .c-top {
     background-color: $g-background-darken;
     color: white;
     font-size: 11px;
     z-index: 6000;
+    @include ab() {
+        font-size: 15px;
+    }
     .c {
         @extend .clearfix;
+        @include ab() {
+            padding: 0;
+        }
     }
     a {
         color: white;
@@ -20,15 +28,61 @@ $right-group-item-border-color: #444444;
             font-size: 12px;
             margin-left: 5px;
         }
+        @include ab() {
+            background-color: #fafafa;
+            width: 100%;
+            color: #838383;
+            text-align: center;
+            padding-top: 10px;
+            padding-right: 10px;
+            padding-bottom: 10px;
+            padding-left: 10px;
+            box-sizing: border-box;
+            a {
+                color: inherit;
+                font-size: inherit;
+            }
+        }
     }
     &__right-group {
         float: right;
+        @include ab() {
+            width: 100%;
+        }
     }
     &__right-group-item {
         float: left;
         border-right: 1px solid $right-group-item-border-color;
         &:first-child {
             border-left: 1px solid $right-group-item-border-color;
+        }
+        @include ab() {
+            &:nth-child(1) {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: $c-top-currency-width-mobile;
+                height: $c-top-right-group-mobile-height;
+                z-index: 3000;
+                border-left: none;
+            }
+            &:nth-child(2) {
+                width: 100%;
+                padding-left: $c-top-currency-width-mobile;
+                padding-right: $c-top-right-group-mobile-height;
+                z-index: 2000;
+                border-left: none;
+                border-right: none;
+            }
+            &:nth-child(3) {
+                position: absolute;
+                top: 0;
+                right: 0;
+                width: $c-top-right-group-mobile-height;
+                height: $c-top-right-group-mobile-height;
+                z-index: 3000;
+                border-right: none;
+            }
         }
     }
     &__accout-link {
@@ -38,17 +92,26 @@ $right-group-item-border-color: #444444;
         padding-left: 35px;
         display: block;
         line-height: $c-top-height;
-        &:before {
-            content: '';
-            display: block;
-            position: absolute;
-            top: 8px;
-            left: 13px;
-            width: 16px;
-            height: 14px;
-            background-image: url('../img/design/user-icon.png');
-            background-repeat: no-repeat;
-            background-size: contain;
+        @include ab() {
+            height: $c-top-right-group-mobile-height;
+            line-height: $c-top-right-group-mobile-height;
+            text-align: center;
+            padding: 0;
+            border-right: 1px solid $right-group-item-border-color;
+        }
+        span {
+            &:before {
+                content: '';
+                display: block;
+                position: absolute;
+                top: 3px;
+                left: -20px;
+                width: 16px;
+                height: 14px;
+                background-image: url('../img/design/user-icon.png');
+                background-repeat: no-repeat;
+                background-size: contain;
+            }
         }
     }
     &__search-group {
@@ -65,12 +128,15 @@ $right-group-item-border-color: #444444;
     }
     &__search-form {
         position: absolute;
-        right: 0;
+        right: -1px;
         top: 100%;
         background-color: black;
         opacity: 0;
         pointer-events: none;
-
+        @include ab() {
+            background-size: 20px;
+            right: 0;
+        }
         input {
             background-color: inherit;
             border: none;
@@ -79,9 +145,16 @@ $right-group-item-border-color: #444444;
             border-top: 1px solid $right-group-item-border-color;
             padding-left: 10px;
             padding-right: 10px;
-            width: 209px;
+            width: 100%;
+            box-sizing: border-box;
             &:focus {
                 outline: none;
+            }
+            @include ab() {
+                width: 100%;
+                box-sizing: border-box;
+                height: $c-top-right-group-mobile-height;
+                font-size: 15px;
             }
         }
     }
@@ -94,5 +167,10 @@ $right-group-item-border-color: #444444;
         background-position: center;
         cursor: pointer;
         pointer-events: none;
+        @include ab() {
+            width: $c-top-right-group-mobile-height;
+            height: $c-top-right-group-mobile-height;
+            background-size: 20px;
+        }
     }
 }
