@@ -63,35 +63,9 @@
        @content;
   }
 }
-@mixin a2() {
-  $width2: $a2;
-  @media screen and (max-width: $width2) {
-       @content;
-  }
-}
-
-@mixin a-top-1() {
-  $width2: $a-top-1;
-  @media screen and (max-width: $width2) {
-       @content;
-  }
-}
-@mixin a-top-2() {
-  $width2: $a-top-2;
-  @media screen and (max-width: $width2) {
-       @content;
-  }
-}
-
 
 @mixin e1() {
   $width1: $e1 + 1;
-  @media screen and (min-width: $width1) {
-       @content;
-  }
-}
-@mixin e2() {
-  $width1: $e2 + 1;
   @media screen and (min-width: $width1) {
        @content;
   }
@@ -100,13 +74,6 @@
 @mixin p1() {
   $width1: #{nth($p1, 1)} + 1;
   $width2: #{nth($p1, 2)};
-  @media (min-width: $width1) and (max-width: $width2) {
-       @content;
-  }
-}
-@mixin p2() {
-  $width1: #{nth($p2, 1)} + 1;
-  $width2: #{nth($p2, 2)};
   @media (min-width: $width1) and (max-width: $width2) {
        @content;
   }

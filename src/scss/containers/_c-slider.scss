@@ -124,7 +124,7 @@
         }
     }
     &__card-img {
-        background-color: lighten($background-color-slider, 20);
+        background-color: lighten($g-main-color, 20);
         height: 290px;
         background-size: cover;
         background-repeat: no-repeat;

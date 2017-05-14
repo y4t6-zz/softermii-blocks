@@ -1,10 +1,7 @@
 $g-main-color: #fd926d; // 1. background в слайдере и при наведениях;
 $g-main-color-darken: darken($g-main-color, 8); // 1. Нижний бордер для кнопки "Добавить в корзину" в слайдере;
 $g-background-dark: #4c4c4b; // 1. Социальные кнопки; 2. Кнопка "Shop it" и иконка "Sale"в карточке в слайдере;
-
-
-$background-color-dark: #000000;
-$background-color-slider: #fd926d;
+$g-background-darken: black;
 
 $color-link: #fd926d;
 $color-link-hover: #dd6b44;
@@ -76,21 +73,15 @@ $gridSystem:          25, 50, 100;
 *------------------------------------------------------------------------------------------------------------*
 */
 $a1:                  776px;
-$a2:                  500px;
 
 $b:                   900px;
 $c:                   1100px;
 $d:                   1250px;
 
 $e1:                  1700px;
-$e2:                  900px;
 
 $p1:                  630px, 1000px;
-$p2:                  $a2, $e2;
 
-
-$a-top-1:             1150px;
-$a-top-2:             999px;
 
 /*********************
 width for center blocks
