@@ -1,9 +1,4 @@
 $c-header-height: 105px;
-$c-header-hover-nav-background: #fafafa;
-$c-header-sub-nav-color: black;
-$c-header-hover-sub-nav-color: black;
-$c-header-nav-border-color: rgb(214, 214, 214);
-$c-header-hover-item-background: darken($c-header-hover-nav-background, 3);
 .c-header {
     background-color: white;
     z-index: 5000;
@@ -25,96 +20,10 @@ $c-header-hover-item-background: darken($c-header-hover-nav-background, 3);
     &__nav-wrap {
         float: right;
         padding-top: 40px;
-    }
-    &__nav-list {
-        & > li {
-            display: inline-block;
-            padding-right: 23px;
-        }
-    }
-    &__nav-sub-list {
-        display: none;
-        position: absolute;
-        top: 28px;
-        left: -20px;
-        background-color: $c-header-hover-nav-background;
-        text-align: left;
-        min-width: 100px;
-        li {
-            margin-top: -1px;
-            &:last-child {
-                padding-bottom: 0;
-            }
-            border: 1px solid $c-header-nav-border-color;
-            a {
-                display: block;
-                color: $c-header-sub-nav-color;
-                text-decoration: none;
-                padding-left: 20px;
-                padding-right: 40px;
-                padding-top: 8px;
-                padding-bottom: 8px;
-                &:hover {
-                    color: $c-header-hover-sub-nav-color;
-                    background-color: $c-header-hover-item-background;
-                }
-            }
-        }
-    }
-    &__nav-item {
-        &:hover {
-            .c-header__nav-item-link {
-                color: $c-header-sub-nav-color;
-                &:before {
-                    background-color: $c-header-hover-nav-background;
-                    border: 1px solid $c-header-nav-border-color;
-                    pointer-events: all;
-                }
-                &:after {
-                    $arrow-color: lighten($c-header-sub-nav-color, 20);
-                    border-right-color: $arrow-color;
-                    border-bottom-color: $arrow-color;
-                }
-            }
-            .c-header__nav-sub-list {
-                display: block;
-            }
-        }
-    }
-    &__nav-item-link {
-        font-size: 16px;
-        line-height: 18px;
-        color: black;
-        text-decoration: none;
-        padding-right: 16px;
-        display: block;
-        &:hover {
-            color: $c-header-hover-sub-nav-color !important;
-            &:before {
-                background-color: $c-header-hover-item-background !important;
-            }
-        }
-        &:before {
-            content: '';
-            display: block;
-            position: absolute;
-            top: -10px;
-            left: -20px;
-            right: -10px;
-            bottom: -10px;
-            pointer-events: none;
-        }
-        &:after {
-            content: '';
-            display: block;
-            position: absolute;
-            top: 9px;
-            right: 5px;
-            border: 3px solid black;
-            border-top-color: transparent;
-            border-left-color: transparent;
-            transform-origin: top right;
-            transform: rotate(45deg);
+        @include a-nav() {
+            width: 100%;
+            padding-top: 20px;
+            padding-bottom: 20px;
         }
     }
     &__cart-wrap {

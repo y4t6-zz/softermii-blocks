@@ -63,6 +63,12 @@
        @content;
   }
 }
+@mixin a-nav() {
+  $width2: $a-nav;
+  @media screen and (max-width: $width2) {
+       @content;
+  }
+}
 
 @mixin e1() {
   $width1: $e1 + 1;
@@ -70,6 +76,13 @@
        @content;
   }
 }
+@mixin e-nav() {
+  $width1: $e-nav + 1;
+  @media screen and (min-width: $width1) {
+       @content;
+  }
+}
+
 
 @mixin p1() {
   $width1: #{nth($p1, 1)} + 1;
